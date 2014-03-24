@@ -1,0 +1,53 @@
+.b-rating__item:after {
+  background-repeat: no-repeat;
+  background-image: url('../img/sprites-sa4ebb4ad71.png');
+}
+
+.b-rating_vote .b-rating__item:hover:after, .b-rating_state-1 .b-rating__item:nth-child(-n+1):after, .b-rating_state-2 .b-rating__item:nth-child(-n+2):after, .b-rating_state-3 .b-rating__item:nth-child(-n+3):after, .b-rating_state-4 .b-rating__item:nth-child(-n+4):after, .b-rating_state-5 .b-rating__item:nth-child(-n+5):after {
+  background-position: 0 0;
+}
+
+.b-rating_state-1.b-rating_state-half .b-rating__item:nth-child(1):after, .b-rating_state-2.b-rating_state-half .b-rating__item:nth-child(2):after, .b-rating_state-3.b-rating_state-half .b-rating__item:nth-child(3):after, .b-rating_state-4.b-rating_state-half .b-rating__item:nth-child(4):after, .b-rating_state-5.b-rating_state-half .b-rating__item:nth-child(5):after {
+  background-position: -44px 0;
+}
+
+.b-rating__item:after {
+  background-position: -88px 0;
+}
+
+.b-rating {
+  margin: 10px 0 30px;
+  display: inline-block;
+  font-size: 0;
+  white-space: nowrap;
+}
+
+.b-rating__item {
+  display: inline-block;
+  vertical-align: middle;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  position: relative;
+  outline: none;
+  font-size: 9px;
+  text-align: center;
+  line-height: 16px;
+}
+.b-rating__item:not(:last-of-type) {
+  margin-right: 1px;
+}
+.b-rating__item:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  margin-top: -8px;
+  margin-left: -8px;
+}
+
+.b-rating_vote .b-rating__item {
+  cursor: pointer;
+}

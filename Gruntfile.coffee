@@ -18,7 +18,7 @@ module.exports = (grunt) ->
     coffee:
       compile:
         files:
-          'build/js/scripts.js': 'src/js/rating.coffee'
+          'build/js/rating.js': 'src/js/rating.coffee'
 
     slim:
       dist:
@@ -44,7 +44,7 @@ module.exports = (grunt) ->
             global_defs:
               DEBUG: debug
         files:
-          'build/js/scripts.js': 'build/js/scripts.js'
+          'build/js/rating.js': 'build/js/rating.js'
 
     replace:
       version:

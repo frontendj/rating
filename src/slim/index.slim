@@ -1,0 +1,95 @@
+doctype html
+html
+  head
+    title Рейтинг
+    meta charset="utf-8"
+    link rel="stylesheet" href="build/css/ya-rating.css"
+    script src="build/js/jquery.custom.js"
+    script src="build/js/scripts.js"
+  body
+
+    .b-column
+
+      p Несколько моментов, которые держим в голове
+      h2 Отключённый javascript
+      p Маловероятный случай, поэтому идеального поведения добиваться не нужно. Просто подсвечиваем активную звёздочку.
+      p При этом вёрстка позволяет использовать как элементы input[type=radio] так и полноценные кнопки button для отправки результата голосования, например, в iframe.
+      h2 Максимальные возможности для изменения
+      p Так как кнопка может быть сильно больше самой картинки со звёздочкой, и могут вылезти другие части спрайта, картинку помещаем фоном в дополнительный элемент (:after, i, span).
+      p Кода будет чуть больше, но и гибкость будет больше.
+      h2 Отключённые картинки
+      p Если звёздочка достаточно большая или фон страницы однородный и известный, в каждой "кнопке" просто прописываем её значение так, чтобы оно перекрывалось картинкой и было видно если картинки отключены.
+      h2 Показ среднего рейтинга
+      p Хорошо бы в результатах голосования видеть неполностью заполненные звёздочки.
+      p На глаз разница между 3.6 и 3.9 будет не особо видна, так что имеет смысл делать только наполовину закрашенные звёздочки - этого должно быть достаточно.
+      h2 Ретина
+      p Как вариант можно использовать SVG спрайты, они будут хорошо смотреться на всех разрешениях.
+      p Но их тяжелее поддерживать, сложнее нарисовать какое-то сложное изображение, они менее производительны, так что я бы выбрал просто вариант с картинкой в 2 раза больше.
+
+    .b-column
+
+
+
+      h2 Несемантическая форма для чистой js-реализации (<a href="build/css/ya-rating-only.css">минимальный css</a>)
+
+      .b-rating.b-rating_vote
+        span.b-rating__item title="Ужасно" data-value="1" 1
+        span.b-rating__item title="Плохо" data-value="2" 2
+        span.b-rating__item title="Средне" data-value="3" 3
+        span.b-rating__item title="Хорошо" data-value="4" 4
+        span.b-rating__item title="Отлично" data-value="5" 5
+
+
+      h2 Резина и с другими звёздочками
+      .b-rating.b-rating_vote.b-rating_v2
+        span.b-rating__item title="Ужасно" data-value="1" 1
+        span.b-rating__item title="Плохо" data-value="2" 2
+        span.b-rating__item title="Средне" data-value="3" 3
+        span.b-rating__item title="Хорошо" data-value="4" 4
+        span.b-rating__item title="Отлично" data-value="5" 5
+
+
+      h2 Результаты
+
+      .b-rating.b-rating_results.b-rating_state-3.b-rating_state-half
+        span.b-rating__item title="Ужасно" 1
+        span.b-rating__item title="Плохо" 2
+        span.b-rating__item title="Средне" 3
+        span.b-rating__item title="Хорошо" 4
+        span.b-rating__item title="Отлично" 5
+
+        span.b-rating-clear#clear-rating  Очистить
+
+      h2 Семантическая форма с radio
+
+      form.b-rating.b-rating_vote
+
+        label.b-rating__item title="Ужасно"
+          input type="radio" value="1" name="rating"
+        label.b-rating__item title="Плохо"
+          input type="radio" value="2" name="rating"
+        label.b-rating__item title="Средне"
+          input type="radio" value="3" name="rating"
+        label.b-rating__item title="Хорошо"
+          input type="radio" value="4" name="rating"
+        label.b-rating__item title="Отлично"
+          input type="radio" value="5" name="rating"
+
+      h2 Семантическая форма с button
+
+      iframe name="rating-post-target" src="some-url-to-post-vote" style="display:none"
+      form.b-rating.b-rating_vote method="post" target="rating-post-target"
+
+        button.b-rating__item type="submit" title="Ужасно" value="1" name="rating" 1
+        button.b-rating__item type="submit" title="Плохо" value="2" name="rating" 2
+        button.b-rating__item type="submit" title="Средне" value="3" name="rating" 3
+        button.b-rating__item type="submit" title="Хорошо" value="4" name="rating" 4
+        button.b-rating__item type="submit" title="Отлично" value="5" name="rating" 5
+
+      h2 Ретина
+      .b-rating.b-rating_vote.b-rating_2x
+        span.b-rating__item title="Ужасно" data-value="1"
+        span.b-rating__item title="Плохо" data-value="2"
+        span.b-rating__item title="Средне" data-value="3"
+        span.b-rating__item title="Хорошо" data-value="4"
+        span.b-rating__item title="Отлично" data-value="5"

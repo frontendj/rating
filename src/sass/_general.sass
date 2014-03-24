@@ -1,0 +1,36 @@
+*
+  margin: 0
+  padding: 0
+  +box-sizing(border-box)
+
+body
+  padding: 30px
+
+h2
+  font-family: Arial, Helvetica, san-serif
+  font-size: 14px
+  margin-bottom: 8px
+  margin-top: 15px
+  &:first-child
+    margin-top: 0
+
+p
+  margin-bottom: 12px
+  font-size: 14px
+
+.b-column
+  width: 45%
+  display: inline-block
+  vertical-align: top
+  &+.b-column
+    width: 50%
+    margin-left: 5%
+
+
+.b-rating-clear
+  border-bottom: 1px dashed
+  font-size: 11px
+  margin-left: 30px
+  cursor: pointer
+  &:hover
+    border-bottom: 0

@@ -1,0 +1,62 @@
+@import compass
+@import sprites
+
+%b-rating__item_bg-passive
+  @extend %sprite_star-passive
+
+%b-rating__item_bg-active
+  @extend %sprite_star-active
+
+%b-rating__item_bg-half-active
+  @extend %sprite_star-half-active
+
+
+// Все необходимое
+
+.b-rating
+  margin: 10px 0 30px
+  display: inline-block
+  font-size: 0
+  white-space: nowrap
+
+.b-rating__item
+  display: inline-block
+  vertical-align: middle
+  width: 16px
+  height: 16px
+  overflow: hidden
+  position: relative
+  outline: none
+  font-size: 9px
+  text-align: center
+  line-height: 16px
+  &:not(:last-of-type)
+    margin-right: 1px
+  &:after
+    content: ''
+    position: absolute
+    left: 50%
+    top: 50%
+    width: image-width('sprites/star-active.png')
+    height: image-height('sprites/star-active.png')
+    margin-top: -1*image-height('sprites/star-active.png')/2
+    margin-left: -1*image-width('sprites/star-active.png')/2
+    @extend %sprite
+    @extend %b-rating__item_bg-passive
+
+.b-rating_vote
+  .b-rating__item
+    cursor: pointer
+    &:hover
+      &:after
+        @extend %b-rating__item_bg-active
+
+@for $i from 1 through 5
+  .b-rating_state-#{$i}
+    .b-rating__item:nth-child(-n+#{$i})
+      &:after
+        @extend %b-rating__item_bg-active
+  .b-rating_state-#{$i}.b-rating_state-half
+    .b-rating__item:nth-child(#{$i})
+      &:after
+        @extend %b-rating__item_bg-half-active

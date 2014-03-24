@@ -1,0 +1,31 @@
+$parts: sprite-map("sprites/*.png", $layout: horizontal, $spacing: 2px)
+$parts2x: sprite-map("sprites2x/*.png", $layout: horizontal, $spacing: 4px)
+
+$parts_names: sprite_names($parts)
+$parts2x_names: sprite_names($parts2x)
+
+%sprite
+  background-repeat: no-repeat
+  background-image: $parts
+
+%sprite2x
+  background-repeat: no-repeat
+  background-image: $parts
+
+@each $sprite in $parts_names
+  %sprite_#{$sprite}
+    background-position: sprite-position($parts, $sprite)
+
+@each $sprite2x in $parts2x_names
+  %sprite2x_#{$sprite2x}
+    background-position: sprite-position($parts, $sprite2x)
+
+
+
+@media (-webkit-min-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 1.5)
+  %sprite2x
+    background-image: $parts2x
+  @each $sprite2x in $parts2x_names
+    %sprite2x_#{$sprite2x}
+      background-size:  ceil(image-width('build/img/'+sprite-path($parts2x)) / 2) auto
+      background-position: round(nth(sprite-position($parts2x, $sprite2x), 1) / 2) 0

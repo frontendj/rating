@@ -4,7 +4,7 @@ module.exports = (grunt) ->
   require('load-grunt-tasks')(grunt)
 
   debug = !!grunt.option('debug')
-  prefix = if debug then '' else '/ya-rating/'
+  prefix = if debug then '' else '/rating/'
 
   grunt.initConfig
 
@@ -18,7 +18,7 @@ module.exports = (grunt) ->
     coffee:
       compile:
         files:
-          'build/js/scripts.js': 'src/js/ya-rating.coffee'
+          'build/js/scripts.js': 'src/js/rating.coffee'
 
     slim:
       dist:

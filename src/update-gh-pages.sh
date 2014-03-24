@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Updating Ya-rating on gh-pages…"
+echo "Updating Rating on gh-pages…"
 
 grunt build
 

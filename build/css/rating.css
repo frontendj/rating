@@ -154,27 +154,27 @@ p {
   cursor: pointer;
 }
 
-.b-rating_state-1 .b-rating__item:nth-child(1) {
+.b-rating_state-1 .b-rating__item:nth-child(-n+1) {
   font-weight: bold;
   color: red;
 }
 
-.b-rating_state-2 .b-rating__item:nth-child(2) {
+.b-rating_state-2 .b-rating__item:nth-child(-n+2) {
   font-weight: bold;
   color: red;
 }
 
-.b-rating_state-3 .b-rating__item:nth-child(3) {
+.b-rating_state-3 .b-rating__item:nth-child(-n+3) {
   font-weight: bold;
   color: red;
 }
 
-.b-rating_state-4 .b-rating__item:nth-child(4) {
+.b-rating_state-4 .b-rating__item:nth-child(-n+4) {
   font-weight: bold;
   color: red;
 }
 
-.b-rating_state-5 .b-rating__item:nth-child(5) {
+.b-rating_state-5 .b-rating__item:nth-child(-n+5) {
   font-weight: bold;
   color: red;
 }

@@ -16,22 +16,21 @@ window.App =
       if value
         parent.attr("class", parent.attr("class").replace(/\s*b-rating_state-[1-9]/g, "")).addClass('b-rating_state-'+value)
 
-    $(document).on 'focus', '.b-rating_vote .b-rating__item', ->
+    $(document).on 'focus', '.b-rating_vote', ->
       $(this).blur()
 
     $(document).on 'mouseleave', '.b-rating_vote', ->
       value = $(this).attr('data-value')
-      if !value
-        $(this).attr("class", $(this).attr("class").replace(/\s*b-rating_state-[1-9]/g, ""))
-      else
-        $(this).attr("class", $(this).attr("class").replace(/\s*b-rating_state-[1-9]/g, "")).addClass 'b-rating_state-'+value
-
-    $(document).on 'click', '.b-rating_vote .b-rating__item', ->
-      parent = $(this).closest('.b-rating')
-      value = $(this).attr('data-value') || $(this).attr('value') || $(this).find('input[type="radio"]').attr('value')
+      $(this).attr("class", $(this).attr("class").replace(/\s*b-rating_state-[1-9]/g, ""))
       if value
-        parent.attr('data-value', value)
-        App.setRating value
+        $(this).addClass 'b-rating_state-'+value
+
+    $(document).on 'click', '.b-rating_vote', (e) ->
+      if $(e.target).hasClass('b-rating__item')
+        value = $(e.target).attr('data-value') || $(e.target).attr('value') || $(e.target).find('input[type="radio"]').attr('value')
+        if value
+          $(this).attr('data-value', value)
+          App.setRating value
       false
 
   setRating: (value)->

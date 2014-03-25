@@ -18,9 +18,6 @@
           return parent.attr("class", parent.attr("class").replace(/\s*b-rating_state-[1-9]/g, "")).addClass('b-rating_state-' + value);
         }
       });
-      $(document).on('focus', '.b-rating_vote', function() {
-        return $(this).blur();
-      });
       $(document).on('mouseleave', '.b-rating_vote', function() {
         var value;
         value = $(this).attr('data-value');

@@ -47,7 +47,7 @@ window.App =
 
   getRating: ->
 
-    @ratingLocalStorage = JSON.parse(localStorage.getItem('rating'))
+    @ratingLocalStorage = JSON.parse(localStorage.getItem('rating')) || {}
     if !@ratingLocalStorage.score || !@ratingLocalStorage.marks
       @ratingLocalStorage =
         score: 0

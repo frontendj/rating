@@ -16,9 +16,6 @@ window.App =
       if value
         parent.attr("class", parent.attr("class").replace(/\s*b-rating_state-[1-9]/g, "")).addClass('b-rating_state-'+value)
 
-    $(document).on 'focus', '.b-rating_vote', ->
-      $(this).blur()
-
     $(document).on 'mouseleave', '.b-rating_vote', ->
       value = $(this).attr('data-value')
       $(this).attr("class", $(this).attr("class").replace(/\s*b-rating_state-[1-9]/g, ""))

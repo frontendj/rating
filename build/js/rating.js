@@ -1,6 +1,7 @@
 (function() {
   window.App = {
     initialize: function() {
+      alert('test');
       this.getRating();
       this.highlightRating();
       return $('#clear-rating').click((function(_this) {

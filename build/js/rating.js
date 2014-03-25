@@ -48,7 +48,7 @@
       return this.showRating();
     },
     getRating: function() {
-      this.ratingLocalStorage = JSON.parse(localStorage.getItem('rating'));
+      this.ratingLocalStorage = JSON.parse(localStorage.getItem('rating')) || {};
       if (!this.ratingLocalStorage.score || !this.ratingLocalStorage.marks) {
         this.ratingLocalStorage = {
           score: 0,

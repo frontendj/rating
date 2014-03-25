@@ -59,16 +59,15 @@
 @for $i from 1 through 5
   .b-rating_state-#{$i}
     .b-rating__item:nth-child(-n+#{$i})
+      font-weight: bold
+      color: red
       &:after
         @extend %b-rating__item_bg-active
   .b-rating_state-#{$i}.b-rating_state-half
     .b-rating__item:nth-child(#{$i})
       &:after
         @extend %b-rating__item_bg-half-active
-  .b-rating_state-#{$i}
-    .b-rating__item:nth-child(#{$i})
-      font-weight: bold
-      color: red
+
 
 // Кастомизация
 

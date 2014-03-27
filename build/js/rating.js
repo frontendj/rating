@@ -10,7 +10,7 @@
       })(this));
     },
     highlightRating: function() {
-      $(document).on('mouseover', '.b-rating_vote', function(e) {
+      $('.b-rating_vote').on('mouseover', function(e) {
         var value;
         if ($(e.target).hasClass('b-rating__item')) {
           value = $(e.target).attr('data-value') || $(e.target).attr('value') || $(e.target).find('input[type="radio"]').attr('value');
@@ -19,7 +19,7 @@
           }
         }
       });
-      $(document).on('mouseleave', '.b-rating_vote', function() {
+      $('.b-rating_vote').on('mouseleave', function() {
         var value;
         value = $(this).attr('data-value');
         $(this).attr("class", $(this).attr("class").replace(/\s*b-rating_state-[1-9]/g, ""));
@@ -27,7 +27,7 @@
           return $(this).addClass('b-rating_state-' + value);
         }
       });
-      return $(document).on('click', '.b-rating_vote', function(e) {
+      return $('.b-rating_vote').on('click', function(e) {
         var value;
         if ($(e.target).hasClass('b-rating__item')) {
           value = $(e.target).attr('data-value') || $(e.target).attr('value') || $(e.target).find('input[type="radio"]').attr('value');

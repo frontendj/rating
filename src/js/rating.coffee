@@ -10,19 +10,19 @@ window.App =
 
   highlightRating: ->
 
-    $(document).on 'mouseover', '.b-rating_vote', (e) ->
+    $('.b-rating_vote').on 'mouseover', (e) ->
       if $(e.target).hasClass('b-rating__item')
         value = $(e.target).attr('data-value') || $(e.target).attr('value') || $(e.target).find('input[type="radio"]').attr('value')
         if value
           $(this).attr("class", $(this).attr("class").replace(/\s*b-rating_state-[1-9]/g, "")).addClass('b-rating_state-'+value)
 
-    $(document).on 'mouseleave', '.b-rating_vote', ->
+    $('.b-rating_vote').on 'mouseleave', ->
       value = $(this).attr('data-value')
       $(this).attr("class", $(this).attr("class").replace(/\s*b-rating_state-[1-9]/g, ""))
       if value
         $(this).addClass 'b-rating_state-'+value
 
-    $(document).on 'click', '.b-rating_vote', (e) ->
+    $('.b-rating_vote').on 'click', (e) ->
       if $(e.target).hasClass('b-rating__item')
         value = $(e.target).attr('data-value') || $(e.target).attr('value') || $(e.target).find('input[type="radio"]').attr('value')
         if value
